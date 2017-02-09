@@ -1,0 +1,27 @@
+extends layouts/layout
+
+block vars
+  -title = 'Homepage'
+  -bodyClass = 'home'
+  -menuIndex = 0
+
+block container
+  main
+    h1(data-plugin) LIST CHART GRAPHIC
+
+    div.wrapper-chart
+      ul.nav.nav-tabs(role='tablist')
+        li.active(role='presentation')
+          a#home-tab(href='#home', role='tab', data-toggle='tab', aria-controls='home') Bar
+        li(role='presentation')
+          a#profile-tab(href='#profile', role='tab', data-toggle='tab', aria-controls='profile') Line
+        li(role='presentation')
+          a#bar-tab(href='#barchart', role='tab', data-toggle='tab', aria-controls='barchart') BarChart
+      #myTabContent.tab-content
+        #home.tab-pane.fade.in.active(role='tabpanel', aria-labelledby='home-tab',data-plugin-chart="true")
+          canvas(height="400", width="800", data-chart-number="1")
+        #profile.tab-pane.fade(role='tabpanel', aria-labelledby='profile-tab', data-plugin-chart="true")
+          canvas(height="400",width="800", data-chart-number="2")
+        #barchart.tab-pane.fade(role='tabpanel', aria-labelledby='bar-tab', data-plugin-chart="true")
+          canvas(height="400",width="800", data-chart-number="3")
+

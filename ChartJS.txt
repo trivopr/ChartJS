@@ -1,0 +1,146 @@
+
+tri.vt@sutrixsolutions.com
+
+Chart.js
+Current Version: 2.4
+2588812
+#Uu
+	- Many
+#Nhuoc
+	- not use SVG
+	
+# How many Chart is Support: 8
+	1. Line Chart				: Bieu do duong
+	2. Bar Chart				: Bieu do cot
+	3. Horizontal Bar 			: Bieu do cot ngang
+	4. Pie & Doughnut Charts	: Bieu do tron && Donut 
+	5. Polar Area Chart			: Bieu do Vung Cực
+	6. Radar Chart				: Bieu do Radar
+	7. Scatter Chart			: Bieu do phan tan
+	8. Bubble Chart				: Bieu do bong bong
+	
+	## More Note
+	
+# How to use
+	Use in options: Declare Type in options
+		var ctx = $('#myChart').get(0).getContext('2d');
+		var myPieChart = new Chart(ctx, {
+			type: 'pie',
+			data: data,
+			options: {
+				...
+			}
+		});	
+		
+
+//====  Mot so luu y trong Doc Chartjs.org ========= //	
+
+	1. Chart.defaults.global.hover.mode = 'nearest';
+	-> Tuong ung voi trong config: Chart.defaults.global == options 
+	
+		var myPieChart = new Chart(ctx, {
+			type: 'pie',
+			data: data,
+			options: {
+				hover: {
+					mode: 'nearest'
+				},
+				tooltips: {
+					enabled: true
+				}
+			}
+		});
+
+	2. Mot Loai Data Label co the co nhieu background
+	
+	3. Tuy chinh Trục X - Trục Y với Scale
+		var chartOption3 = {
+		  type: 'bar',
+		  data: data3,
+		  options: {
+			scales: {
+				yAxes: [{
+					ticks: {
+						max: 100,
+						min: 0,
+						stepSize: 10
+					}
+				}]
+			}
+		  }
+		};	
+	
+	
+//====== NOTE IN CHARTJS.ORG DOC ============//
+
+	.destroy()
+		myLineChart.destroy()
+		
+	.update(duration.lazy)
+		myLineChart.data.datasets[0].data[2] = 50;
+		myLineChart.update();
+		
+	.reset()
+		myLineChart.reset()
+		
+	.render(duration, lazy)
+		myLineChart.render(duration, lazy)
+		
+	.stop()
+		myLineChart.stop()
+	
+	.resize()
+		myLineChart.resize()
+		
+	.clear()
+		myLineChart.clear()
+		
+	.toBase64Image()
+		myLineChart.toBase64Image();
+		
+	.generateLegend()
+		myLineChart.generateLegend();
+		
+	.getElementAtEvent(e)
+		myLineChart.getElementAtEvent(e);
+	
+	.getElementsAtEvent(e)
+		myLineChart.getElementsAtEvent(e)
+		
+	.getDatasetAtEvent(e)
+		myLineChart.getDatasetAtEvent(e)
+	
+	.getDatasetMeta(index)
+		var meta = myChart.getDatasetMeta(0);
+		var x = meta.data[0]._model.x
+	
+	
+	======== PLUGIN WITH CHART ========
+	
+	{
+		beforeInit: function(chartInstance) { },
+		afterInit: function(chartInstance) { },
+
+		resize: function(chartInstance, newChartSize) { },
+
+		beforeUpdate: function(chartInstance) { },
+		afterScaleUpdate: function(chartInstance) { }
+		beforeDatasetsUpdate: function(chartInstance) { }
+		afterDatasetsUpdate: function(chartInstance) { }
+		afterUpdate: function(chartInstance) { },
+
+		// This is called at the start of a render. It is only called once, even if the animation will run for a number of frames. Use beforeDraw or afterDraw
+		// to do something on each animation frame
+		beforeRender: function(chartInstance) { },
+
+		// Easing is for animation
+		beforeDraw: function(chartInstance, easing) { },
+		afterDraw: function(chartInstance, easing) { },
+		// Before the datasets are drawn but after scales are drawn
+		beforeDatasetsDraw: function(chartInstance, easing) { },
+		afterDatasetsDraw: function(chartInstance, easing) { },
+
+		destroy: function(chartInstance) { }
+	}	
+
+	
